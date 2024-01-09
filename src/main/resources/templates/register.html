@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/css/dist/mdb5/standard/core.min.css">
+
+    <style type="text/css">
+        /* Importing fonts from Google */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+        /* Resetting */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #f8f9fa;
+        }
+
+        .wrapper {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .wrapper .name {
+            font-weight: 600;
+            font-size: 2rem;
+            color: #007bff; /* Blue */
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .wrapper .form-field {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .wrapper .form-field input {
+            width: 100%;
+            padding: 15px;
+            font-size: 1rem;
+            border: 1px solid #007bff; /* Blue */
+            border-radius: 5px;
+            transition: border-color 0.3s;
+            padding-left: 40px; /* Adjusted padding to accommodate the icon */
+        }
+
+        .wrapper .form-field input:focus {
+            outline: none;
+            border-color: #0056b3; /* Darker Blue */
+        }
+
+        .wrapper .form-field .fas {
+            position: absolute;
+            top: 50%;
+            left: 15px;
+            transform: translateY(-50%);
+            color: #555;
+        }
+
+        .wrapper .btn {
+            width: 100%;
+            height: 50px;
+            background-color: #0056b3; /* Darker Blue */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: background-color 0.3s;
+        }
+
+        .wrapper .btn:hover {
+            background-color: #004080; /* Even Darker Blue */
+        }
+
+        .wrapper a {
+            text-decoration: none;
+            font-size: 0.9rem;
+            color: #007bff; /* Blue */
+            transition: color 0.3s;
+        }
+
+        .wrapper a:hover {
+            color: #0056b3; /* Darker Blue */
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="name">
+        Register
+    </div>
+    <form th:action="@{/register}" th:object="${user}" method="post">
+        <div class="form-field">
+            <span class="fas fa-user"></span>
+            <input type="text" th:field="*{username}" placeholder="Username">
+        </div>
+        <div class="form-field">
+            <span class="fas fa-user"></span>
+            <input type="text" th:field="*{ktp}" placeholder="No KTP">
+        </div>
+        <div class="form-field">
+            <span class="fas fa-user"></span>
+            <input type="text" th:field="*{nim}" placeholder="NIM">
+        </div>
+        <div class="form-field">
+            <span class="fas fa-user"></span>
+            <input type="text" th:field="*{nama}" placeholder="Nama Lengkap">
+        </div>
+        <div class="form-field">
+            <span class="fas fa-user"></span>
+            <input type="text" th:field="*{hp}" placeholder="No HP">
+        </div>
+        <div class="form-field">
+            <span class="fas fa-key"></span>
+            <input type="password" th:field="*{password}" placeholder="Password">
+        </div>
+        <button class="btn">Register</button>
+    </form>
+    <div class="text-center mt-3">
+        <a href="#">Sudah punya akun</a> ? <a th:href="@{login}">Login</a>
+    </div>
+</div>
+
+</body>
+</html>

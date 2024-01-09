@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<style>
+    body {
+        background-color: #e3f2fd;
+        color: #1e88e5;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .wrapper {
+        max-width: 400px;
+        margin: 80px auto;
+        padding: 30px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+        width: 80px;
+        margin: auto;
+    }
+
+    .logo img {
+        width: 100%;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    .wrapper .name {
+        font-weight: 600;
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+        margin-bottom: 20px;
+        color: #1e88e5;
+    }
+
+    .wrapper .form-field input {
+        width: 100%;
+        display: block;
+        border: 1px solid #64b5f6;
+        border-radius: 5px;
+        outline: none;
+        font-size: 1rem;
+        color: #1e88e5;
+        padding: 10px;
+        margin-bottom: 20px;
+        background-color: #e3f2fd;
+    }
+
+    .wrapper .btn {
+        width: 100%;
+        height: 40px;
+        background-color: #1565c0;
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+    .wrapper .btn:hover {
+        background-color: #0d47a1;
+    }
+
+    .wrapper a {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+        font-size: 0.9rem;
+        color: #1565c0;
+        text-decoration: none;
+    }
+
+    .wrapper a:hover {
+        color: #0d47a1;
+    }
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="text-center mt-4 name">
+        Login
+    </div>
+    <form class="p-3 mt-3" th:action="@{/login}" th:object="${user}" method="post">
+        <div class="form-field">
+            <input type="text" th:field="*{username}" class="form-control" placeholder="Username">
+        </div>
+        <div class="form-field">
+            <input type="password" th:field="*{password}" class="form-control" placeholder="Password">
+        </div>
+        <button class="btn mt-3">Login</button>
+    </form>
+    <div class="text-center fs-6">
+        <a href="#" class="text-muted">Don't have an account?</a> <a th:href="@{register}" class="text-primary">Register</a>
+    </div>
+</div>
+
+</body>
+</html>
